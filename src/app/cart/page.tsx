@@ -90,13 +90,13 @@ export default function CartPage() {
       <h1 className="text-3xl font-bold text-gray-800 mb-8">Shopping Cart</h1>
       
       {cartItems.length === 0 ? (
-        <div className="text-center py-12 bg-white rounded-lg shadow-md">
-          <h2 className="text-xl text-gray-600 mb-4">Your cart is empty</h2>
-          <Link href="/" className="bg-teal-500 text-white px-6 py-3 rounded-md hover:bg-teal-600 transition-colors cursor-pointer">
-            Continue Shopping
-          </Link>
-        </div>
-      ) : (
+	  <div className="text-center py-12 bg-white rounded-lg shadow-md">
+	    <h2 className="text-xl text-gray-600 mb-4">Your cart is waiting for a new adventure!</h2> {/* MODIFIED */}
+		  <Link href="/" className="bg-teal-600 text-white px-6 py-3 rounded-md hover:bg-teal-700 transition-colors cursor-pointer">
+		    Start Shopping {/* MODIFIED */}
+		  </Link>
+	  </div>
+	) : (
         <>
           <div className="bg-white rounded-lg shadow-md">
             {cartItems.map((item) => (
