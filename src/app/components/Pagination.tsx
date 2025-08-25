@@ -103,7 +103,7 @@ const Pagination: React.FC<PaginationProps> = ({
                   onClick={() => onPageChange(page as number)}
                   className={`px-3 py-2 rounded-lg border text-sm font-medium transition-colors cursor-pointer ${
                     currentPage === page
-                      ? 'bg-blue-600 text-white border-blue-600'
+                      ? 'bg-teal-600 text-white border-teal-600'
                       : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50 hover:border-gray-400'
                   }`}
                   aria-label={`Go to page ${page}`}
@@ -141,7 +141,7 @@ const Pagination: React.FC<PaginationProps> = ({
             onPageChange(1);
             // The parent component should handle the itemsPerPage change
           }}
-          className="px-2 py-1 border border-gray-300 rounded text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="px-2 py-1 border border-gray-300 rounded text-sm bg-white focus:outline-none focus:ring-2 focus:ring-teal-500"
         >
           <option value={8}>8</option>
           <option value={12}>12</option>

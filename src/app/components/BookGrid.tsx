@@ -146,7 +146,7 @@ const BookGrid: React.FC<BookGridProps> = ({ books, onAddToCart }) => {
                     onClick={() => goToFeaturedPage(index)}
                     className={`w-2 h-2 rounded-full transition-colors duration-200 cursor-pointer ${
                       index === featuredCarouselIndex 
-                        ? 'bg-blue-600' 
+                        ? 'bg-teal-600' 
                         : 'bg-gray-300 hover:bg-gray-400'
                     }`}
                     aria-label={`Go to featured books page ${index + 1}`}
@@ -206,7 +206,7 @@ const BookGrid: React.FC<BookGridProps> = ({ books, onAddToCart }) => {
               placeholder="Search by title or author..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
           </div>
           <div className="w-full md:w-1/4">
@@ -217,7 +217,7 @@ const BookGrid: React.FC<BookGridProps> = ({ books, onAddToCart }) => {
               id="genreFilter"
               value={selectedGenre}
               onChange={(e) => setSelectedGenre(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white"
             >
               {genres.map(genre => (
                 <option key={genre} value={genre}>{genre}</option>
@@ -241,7 +241,7 @@ const BookGrid: React.FC<BookGridProps> = ({ books, onAddToCart }) => {
                 id="sortBy"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-sm"
+                className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white text-sm"
               >
                 <option value="title">Title</option>
                 <option value="author">Author</option>
@@ -255,7 +255,7 @@ const BookGrid: React.FC<BookGridProps> = ({ books, onAddToCart }) => {
             {/* Sort Order Toggle */}
             <button
               onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
-              className="flex items-center gap-1 px-3 py-2 border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm cursor-pointer"
+              className="flex items-center gap-1 px-3 py-2 border border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-teal-500 text-sm cursor-pointer"
               aria-label={`Sort ${sortOrder === 'asc' ? 'descending' : 'ascending'}`}
             >
               {sortOrder === 'asc' ? (

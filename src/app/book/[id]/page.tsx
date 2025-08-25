@@ -125,7 +125,7 @@ export default function BookDetailPage() {
     return (
       <div className="text-center py-10">
         <h1 className="text-2xl font-bold text-red-500">{error}</h1>
-        <Link href="/" className="text-blue-500 hover:underline mt-4 inline-block cursor-pointer">
+        <Link href="/" className="text-teal-500 hover:underline mt-4 inline-block cursor-pointer">
           Back to Home
         </Link>
       </div>
@@ -165,7 +165,7 @@ export default function BookDetailPage() {
             ))}
           </div>
 
-          <div className="text-3xl font-bold text-blue-600 mb-6">${book.price.toFixed(2)}</div>
+          <div className="text-3xl font-bold text-teal-600 mb-6">${book.price.toFixed(2)}</div>
 
           <div className="flex items-center space-x-4 mb-6">
             <label htmlFor="quantity" className="font-semibold">Quantity:</label>
@@ -175,18 +175,18 @@ export default function BookDetailPage() {
               min="1"
               value={quantity}
               onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value, 10) || 1))}
-              className="w-20 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-20 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
           </div>
 
           <button 
             onClick={handleAddToCart}
-            className="w-full bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600 transition-colors duration-300 text-lg font-semibold cursor-pointer"
+            className="w-full bg-teal-500 text-white py-3 rounded-md hover:bg-teal-600 transition-colors duration-300 text-lg font-semibold cursor-pointer"
           >
             Add to Cart
           </button>
 
-          <Link href="/" className="text-blue-500 hover:underline mt-6 text-center cursor-pointer">
+          <Link href="/" className="text-teal-500 hover:underline mt-6 text-center cursor-pointer">
             &larr; Back to Home
           </Link>
         </div>
