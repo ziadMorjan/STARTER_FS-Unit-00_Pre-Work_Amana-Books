@@ -203,7 +203,7 @@ const BookGrid: React.FC<BookGridProps> = ({ books, onAddToCart }) => {
           <div className="w-full md:w-1/2">
             <input
               type="text"
-              placeholder="Search by title or author..."
+              placeholder="Find your next great read..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
