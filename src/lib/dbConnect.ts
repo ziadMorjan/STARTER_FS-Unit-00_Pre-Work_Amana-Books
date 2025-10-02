@@ -1,15 +1,4 @@
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-
-dotenv.config({ path: '.env.local' });
-
-const MONGODB_URI = process.env.MONGODB_URI || 'test';
-
-if (!MONGODB_URI) {
-  throw new Error(
-    'Please define the MONGODB_URI environment variable inside .env.local'
-  );
-}
 
 /**
  * Global is used here to maintain a cached connection across hot reloads
@@ -22,7 +11,7 @@ if (!cached) {
   cached = (global as any).mongoose = { conn: null, promise: null };
 }
 
-async function dbConnect() {
+async function dbConnect(MONGODB_URI?: string) {
   if (cached.conn) {
     return cached.conn;
   }

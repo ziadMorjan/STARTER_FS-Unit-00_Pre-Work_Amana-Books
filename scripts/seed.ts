@@ -1,13 +1,23 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config({ path: '.env.local' });
 import dbConnect from '../src/lib/dbConnect';
 import Book from '../src/models/Book';
 import Review from '../src/models/Review';
 import { books } from '../src/app/data/books';
 import { reviews } from '../src/app/data/reviews';
 
+const MONGODB_URI = process.env.MONGODB_URI || '';
+
+if (!MONGODB_URI) {
+  throw new Error(
+    'Please define the MONGODB_URI environment variable inside .env.local'
+  );
+}
+
 async function seedDatabase() {
   try {
-    await dbConnect();
+    await dbConnect(MONGODB_URI);
     console.log('Connected to database for seeding.');
 
     // Clear existing data
