@@ -68,7 +68,7 @@ const BookCard: React.FC<BookCardProps> = ({ book, onAddToCart }) => {
       await new Promise(resolve => setTimeout(resolve, 500));
       
       if (onAddToCart) {
-        onAddToCart(book.id);
+        onAddToCart(book._id);
       }
       
       // Show success feedback
@@ -84,7 +84,7 @@ const BookCard: React.FC<BookCardProps> = ({ book, onAddToCart }) => {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 transition-transform duration-300">
       {/* Book Cover - Clickable */}
-      <Link href={`/book/${book.id}`} className="block cursor-pointer">
+      <Link href={`/book/${book._id || book.id}`} className="block cursor-pointer">
         <div className="relative h-64 w-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition-colors duration-200">
           {/* Book Icon Placeholder */}
           <div className="text-6xl text-gray-400">📚</div>
@@ -93,7 +93,7 @@ const BookCard: React.FC<BookCardProps> = ({ book, onAddToCart }) => {
       
       {/* Book Information */}
       <div className="p-4">
-        <Link href={`/book/${book.id}`} className="block cursor-pointer">
+        <Link href={`/book/${book._id || book.id}`} className="block cursor-pointer">
           <h3 className="text-lg font-semibold text-gray-800 truncate hover:text-teal-600 transition-colors duration-200">{book.title}</h3>
           <p className="text-sm text-gray-600 mt-1">by {book.author}</p>
         </Link>
@@ -123,7 +123,7 @@ const BookCard: React.FC<BookCardProps> = ({ book, onAddToCart }) => {
         
         {/* Action Buttons */}
         <div className="flex gap-2 mt-4">
-          <Link href={`/book/${book.id}`} className="flex-1 cursor-pointer">
+          <Link href={`/book/${book._id}`} className="flex-1 cursor-pointer">
             <button className="w-full px-3 py-2 text-sm border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition-colors duration-200 cursor-pointer">
               View Details
             </button>

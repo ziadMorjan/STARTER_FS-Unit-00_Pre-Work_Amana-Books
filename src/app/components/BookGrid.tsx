@@ -183,7 +183,7 @@ const BookGrid: React.FC<BookGridProps> = ({ books, onAddToCart }) => {
         <div className="relative">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {currentFeaturedBooks.map(book => (
-              <BookCard key={book.id} book={book} onAddToCart={onAddToCart} />
+              <BookCard key={book._id || book.id} book={book} onAddToCart={onAddToCart} />
             ))}
           </div>
           
@@ -285,7 +285,7 @@ const BookGrid: React.FC<BookGridProps> = ({ books, onAddToCart }) => {
 			<>
 			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 				{paginatedBooks.map(book => (
-				<BookCard key={book.id} book={book} onAddToCart={onAddToCart} />
+				<BookCard key={book._id || book.id} book={book} onAddToCart={onAddToCart} />
 				))}
 			</div>
 			
