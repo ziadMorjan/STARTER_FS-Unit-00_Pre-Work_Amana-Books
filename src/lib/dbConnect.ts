@@ -1,28 +1,36 @@
+// src/lib/dbConnect.ts
 import mongoose from 'mongoose';
 
-/**
- * Global is used here to maintain a cached connection across hot reloads
- * in development. This prevents connections growing exponentially
- * during API Route usage.
- */
-let cached = (global as any).mongoose;
+const MONGODB_URI = process.env.MONGODB_URI as string;
 
-if (!cached) {
-  cached = (global as any).mongoose = { conn: null, promise: null };
+if (!MONGODB_URI) {
+  throw new Error(
+    'Please define the MONGODB_URI environment variable inside .env.local'
+  );
 }
 
-async function dbConnect(MONGODB_URI?: string) {
+interface Cached {
+  conn: typeof mongoose | null;
+  promise: Promise<typeof mongoose> | null;
+}
+
+let cached: Cached = (global as unknown as { mongoose: Cached }).mongoose;
+
+if (!cached) {
+  cached = (global as unknown as { mongoose: Cached }).mongoose = {
+    conn: null,
+    promise: null,
+  };
+}
+
+async function dbConnect(uri: string = MONGODB_URI) {
   if (cached.conn) {
     return cached.conn;
   }
 
   if (!cached.promise) {
-    const opts = {
+    cached.promise = mongoose.connect(uri, {
       bufferCommands: false,
-    };
-
-    cached.promise = mongoose.connect(MONGODB_URI!, opts).then((mongoose) => {
-      return mongoose;
     });
   }
   cached.conn = await cached.promise;
