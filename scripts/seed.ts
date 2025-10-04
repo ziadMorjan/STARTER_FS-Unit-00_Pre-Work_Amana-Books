@@ -40,7 +40,7 @@ async function seedDatabase() {
     const bookIdMap = new Map<string, mongoose.Types.ObjectId>();
     insertedBooks.forEach((book, index) => {
       // 'books[index].id' is the original static ID like "1", "2", etc.
-      bookIdMap.set(books[index].id, book._id);
+      bookIdMap.set(books[index].id!, book._id);
     });
 
     // Transform reviews to use new book IDs

@@ -35,7 +35,7 @@ const CartItem: React.FC<CartItemProps> = ({ item, onUpdateQuantity, onRemoveIte
       <div className="flex items-center space-x-4">
         <div className="flex items-center space-x-2">
           <button 
-            onClick={() => onUpdateQuantity(book.id, quantity - 1)}
+            onClick={() => onUpdateQuantity(book.id!, quantity - 1)}
             disabled={quantity <= 1}
             className="px-2 py-1 border rounded-md hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
@@ -43,7 +43,7 @@ const CartItem: React.FC<CartItemProps> = ({ item, onUpdateQuantity, onRemoveIte
           </button>
           <span>{quantity}</span>
           <button 
-            onClick={() => onUpdateQuantity(book.id, quantity + 1)}
+            onClick={() => onUpdateQuantity(book.id!, quantity + 1)}
             className="px-2 py-1 border rounded-md hover:bg-gray-100 cursor-pointer"
           >
             +
@@ -51,7 +51,7 @@ const CartItem: React.FC<CartItemProps> = ({ item, onUpdateQuantity, onRemoveIte
         </div>
         <p className="text-md font-semibold w-20 text-right">${subtotal}</p>
         <button 
-          onClick={() => onRemoveItem(book.id)}
+          onClick={() => onRemoveItem(book.id!)}
           className="text-red-500 hover:text-red-700 font-semibold cursor-pointer"
         >
           Remove

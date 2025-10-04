@@ -1,7 +1,7 @@
 // src/app/page.tsx
 'use client';
 
-import { useState } from 'react';
+// import { useState } from 'react';
 import useSWR from 'swr'; // Import SWR for data fetching
 import BookGrid from './components/BookGrid';
 import { Book } from './types'; // Import the updated Book type

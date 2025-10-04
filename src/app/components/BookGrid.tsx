@@ -4,7 +4,7 @@
 import React, { useState, useMemo } from 'react';
 import { Book } from '../types';
 import BookCard from './BookCard';
-import BookListItem from './BookListItem';
+// import BookListItem from './BookListItem';
 import Pagination from './Pagination';
 
 interface BookGridProps {
@@ -18,7 +18,7 @@ const BookGrid: React.FC<BookGridProps> = ({ books, onAddToCart }) => {
   const [sortBy, setSortBy] = useState('rating'); // MODIFIED from 'title'
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc'); // MODIFIED from 'asc'
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(8);
+  const [itemsPerPage, /*setItemsPerPage*/] = useState(8);
   const [featuredCarouselIndex, setFeaturedCarouselIndex] = useState(0);
 
   // Memoize featured books to prevent re-calculation on every render
@@ -125,10 +125,10 @@ const BookGrid: React.FC<BookGridProps> = ({ books, onAddToCart }) => {
   };
 
   // Handle items per page change
-  const handleItemsPerPageChange = (newItemsPerPage: number) => {
-    setItemsPerPage(newItemsPerPage);
-    setCurrentPage(1);
-  };
+//   const handleItemsPerPageChange = (newItemsPerPage: number) => {
+//     setItemsPerPage(newItemsPerPage);
+//     setCurrentPage(1);
+//   };
 
   return (
     <div className="container mx-auto px-4 py-8">
